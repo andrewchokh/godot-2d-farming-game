@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dmohxdxh6utck" path="res://scenes/components/hurt_component.tscn" id="2_xyb6m"]
 [ext_resource type="PackedScene" uid="uid://bu1a6vvav8veh" path="res://scenes/components/damage_component.tscn" id="3_au4vd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xyb6m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5iuu"]
 atlas = ExtResource("1_a8qts")
 region = Rect2(0, 0, 16, 32)
 
@@ -16,14 +16,14 @@ radius = 4.1231055
 size = Vector2(10, 20)
 
 [node name="SmallTree" type="Sprite2D"]
-position = Vector2(0, -11)
-texture = SubResource("AtlasTexture_xyb6m")
+position = Vector2(0, -10)
+texture = SubResource("AtlasTexture_g5iuu")
 script = ExtResource("2_g5iuu")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 8)
+position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_a8qts")
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_xyb6m")]

@@ -2,10 +2,13 @@ extends NodeState
 
 @export var player : Player
 @export var animated_sprite_2d : AnimatedSprite2D
+@export var hit_component : HitComponent
 @export var hit_component_collision_shape : CollisionShape2D
 
 
 func _ready() -> void:
+	hit_component.current_tool = player.current_tool
+
 	hit_component_collision_shape.disabled = true
 	hit_component_collision_shape.position = Vector2.ZERO
 
