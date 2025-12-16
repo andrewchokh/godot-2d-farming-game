@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf8wt2xe3ywf2"]
+
+[ext_resource type="Texture2D" uid="uid://dyiyyje6r7w25" path="res://assets/game/objects/basic_grass_biome_things.png" id="1_kind3"]
+[ext_resource type="PackedScene" uid="uid://77k22yt00n05" path="res://scenes/components/collectable_component.tscn" id="2_3dq8t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2a05"]
+atlas = ExtResource("1_kind3")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s5rqd"]
+radius = 4.0
+
+[node name="Stone" type="Sprite2D"]
+position = Vector2(1, -1)
+texture = SubResource("AtlasTexture_e2a05")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_3dq8t")]
+collectable_name = "Stone"
+
+[node name="CollectableCollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(-1, -2)
+shape = SubResource("CircleShape2D_s5rqd")
+debug_color = Color(0.2567908, 0.6265795, 0.3011464, 0.41960785)
