@@ -24,10 +24,11 @@ func _on_physics_process(_delta : float) -> void:
 func _on_next_transitions() -> void:
 	GameInputEvents.movement_input()
 	
-	if !GameInputEvents.is_movement_input():
-		return
+	if GameInputEvents.is_movement_input():
+		transition.emit("Walk")
 	
-	transition.emit("Walk")
+	if GameInputEvents.use_tool() && player.current_tool == DataTypes.Tools.AxeWood:
+		transition.emit("Chopping")
 
 
 func _on_enter() -> void:
