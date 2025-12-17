@@ -14,8 +14,6 @@ var speed : float
 func _ready() -> void:
     navigation_agent_2d.velocity_computed.connect(on_safe_velocity_computed)
 
-    call_deferred("character_setup")
-
 
 func _on_process(_delta : float) -> void:
     pass
@@ -51,21 +49,18 @@ func _on_enter() -> void:
     animated_sprite_2d.play("walk")
     character.current_walk_cycle = 0
 
+    set_movement_target()
+
 
 func _on_exit() -> void:
     animated_sprite_2d.stop()
 
 
-func character_setup() -> void:
-    await get_tree().physics_frame
-
-    set_movement_target()
-
-
 func set_movement_target() -> void:
     var target_position : Vector2 = NavigationServer2D.map_get_random_point(
         navigation_agent_2d.get_navigation_map(), 
-        navigation_agent_2d.navigation_layers, false
+        navigation_agent_2d.navigation_layers, 
+        true
     )
 
     navigation_agent_2d.target_position = target_position
