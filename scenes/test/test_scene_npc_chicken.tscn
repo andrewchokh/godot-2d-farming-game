@@ -24,6 +24,12 @@ tile_set = ExtResource("1_frr7b")
 [node name="Chicken" parent="." instance=ExtResource("2_ardmt")]
 position = Vector2(324, 163)
 
+[node name="Chicken2" parent="." instance=ExtResource("2_ardmt")]
+position = Vector2(354, 181)
+
+[node name="Chicken3" parent="." instance=ExtResource("2_ardmt")]
+position = Vector2(322, 203)
+
 [node name="Player" parent="." instance=ExtResource("3_6nbhr")]
 position = Vector2(309, 173)
 

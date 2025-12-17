@@ -77,6 +77,8 @@ position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_be5x3")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 5.0
 debug_enabled = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]

@@ -12,6 +12,8 @@ var speed : float
 
 
 func _ready() -> void:
+    navigation_agent_2d.velocity_computed.connect(on_safe_velocity_computed)
+
     call_deferred("character_setup")
 
 
@@ -27,8 +29,14 @@ func _on_physics_process(_delta : float) -> void:
     var target_position : Vector2 = navigation_agent_2d.get_next_path_position()
     var target_direction : Vector2 = character.global_position.direction_to(target_position)
     animated_sprite_2d.flip_h = target_direction.x < 0.0
-    character.velocity = target_direction * speed
-    character.move_and_slide()
+
+    var velocity : Vector2 = target_direction * speed
+
+    if navigation_agent_2d.avoidance_enabled:
+        navigation_agent_2d.velocity = velocity
+    else:
+        character.velocity = velocity
+        character.move_and_slide()
 
 
 func _on_next_transitions() -> void:
@@ -59,3 +67,7 @@ func set_movement_target() -> void:
 
     navigation_agent_2d.target_position = target_position
     speed = randf_range(minimum_speed, maximum_speed)
+
+func on_safe_velocity_computed(safe_velocity : Vector2) -> void:
+    character.velocity = safe_velocity
+    character.move_and_slide()
