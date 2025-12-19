@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://f0n1xxi04civ"]
+
+[ext_resource type="FontFile" uid="uid://doffo27j0ihpu" path="res://assets/fonts/tiny_and_chunky.ttf" id="1_f10sn"]
+
+[resource]
+base_font = ExtResource("1_f10sn")
+spacing_top = -1
+spacing_bottom = 1
