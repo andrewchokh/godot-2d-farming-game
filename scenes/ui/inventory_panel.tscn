@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b57m5iois3pnj"]
+
+[ext_resource type="Theme" uid="uid://d3puk4hu60ol7" path="res://scenes/ui/game_ui.tres" id="1_7ck5g"]
+
+[node name="InventoryPanel" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_7ck5g")
+theme_type_variation = &"DarkWoodPanel"
