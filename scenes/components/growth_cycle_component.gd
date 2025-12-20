@@ -1,7 +1,7 @@
 class_name GrowthCycleComponent
 extends Node
 
-@export var growth_state : DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
+@export var growth_state : DataTypes.GrowthStates = DataTypes.GrowthStates.Germination
 @export_range(5, 365) var days_until_harvest : int = 7
 
 signal crop_maturity
@@ -18,17 +18,12 @@ func _ready() -> void:
 
 
 func on_time_tick_day(day: int) -> void:
-    if !is_watered:
-        return
+    if is_watered:
+        if starting_day > 0:
+            starting_day = day
     
-    growth_states(starting_day, day)
-
-    harvest_state(starting_day, day)
-    
-    if starting_day > 0:
-        return
-    
-    starting_day = day
+        growth_states(starting_day, day)
+        harvest_state(starting_day, day)
 
 
 func growth_states(starting_day: int, current_day: int) -> void:
@@ -38,7 +33,7 @@ func growth_states(starting_day: int, current_day: int) -> void:
     var num_states = 5
 
     var growth_days_passed = (current_day - starting_day) % num_states
-    var state_index = growth_days_passed % num_states + 1
+    var state_index = growth_days_passed % num_states
 
     growth_state = state_index as DataTypes.GrowthStates
 

@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://bbivxr4laeydu"]
+[gd_scene load_steps=7 format=4 uid="uid://bbivxr4laeydu"]
 
 [ext_resource type="PackedScene" uid="uid://bpax6psfmbl1m" path="res://scenes/components/day_night_cycle_component.tscn" id="1_17gaa"]
 [ext_resource type="TileSet" uid="uid://cp1gtdqntwkg2" path="res://tilesets/game_tile_set.tres" id="2_eku4r"]
 [ext_resource type="PackedScene" uid="uid://76fc6wp54qv4" path="res://scenes/characters/player/player.tscn" id="3_s5uu4"]
 [ext_resource type="PackedScene" uid="uid://d32akidl548o4" path="res://scenes/ui/game_screen.tscn" id="4_f40v7"]
 [ext_resource type="PackedScene" uid="uid://ckoar288craqr" path="res://scenes/objects/plants/corn_crop.tscn" id="5_eku4r"]
+[ext_resource type="PackedScene" uid="uid://buxsq53ywqj6a" path="res://scenes/objects/plants/tomato_crop.tscn" id="6_s5uu4"]
 
 [node name="TestSceneCrops" type="Node2D"]
+y_sort_enabled = true
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_17gaa")]
 visible = false
@@ -27,5 +29,23 @@ position = Vector2(333, 179)
 
 [node name="GameScreen" parent="." instance=ExtResource("4_f40v7")]
 
-[node name="CornCrop" parent="." instance=ExtResource("5_eku4r")]
-position = Vector2(265, 174)
+[node name="Crops" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="TomatoCrop" parent="Crops" instance=ExtResource("6_s5uu4")]
+position = Vector2(291, 152)
+
+[node name="TomatoCrop2" parent="Crops" instance=ExtResource("6_s5uu4")]
+position = Vector2(265, 152)
+
+[node name="TomatoCrop3" parent="Crops" instance=ExtResource("6_s5uu4")]
+position = Vector2(236, 152)
+
+[node name="CornCrop" parent="Crops" instance=ExtResource("5_eku4r")]
+position = Vector2(266, 174)
+
+[node name="CornCrop2" parent="Crops" instance=ExtResource("5_eku4r")]
+position = Vector2(292, 174)
+
+[node name="CornCrop3" parent="Crops" instance=ExtResource("5_eku4r")]
+position = Vector2(237, 174)

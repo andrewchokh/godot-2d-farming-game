@@ -1,27 +1,30 @@
 [gd_scene load_steps=8 format=3 uid="uid://ckoar288craqr"]
 
 [ext_resource type="Texture2D" uid="uid://cwoicrrt2onqw" path="res://assets/game/objects/basic_plants.png" id="1_5fjvb"]
+[ext_resource type="Script" uid="uid://r05kmwyi31gn" path="res://scenes/objects/plants/corn_crop.gd" id="1_f68s7"]
 [ext_resource type="PackedScene" uid="uid://dmohxdxh6utck" path="res://scenes/components/hurt_component.tscn" id="2_bl3dm"]
 [ext_resource type="PackedScene" uid="uid://drbe6s54y3u56" path="res://scenes/objects/plants/watering_particles.tscn" id="2_wpgdu"]
 [ext_resource type="PackedScene" uid="uid://d0mmdk1rcj6ly" path="res://scenes/components/growth_cycle_component.tscn" id="4_fjx7p"]
 [ext_resource type="PackedScene" uid="uid://dy50svq2bxldu" path="res://scenes/objects/plants/flowering_particles.tscn" id="4_wpgdu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wpgdu"]
-atlas = ExtResource("1_5fjvb")
-region = Rect2(16, 0, 16, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjx7p"]
 size = Vector2(13, 8)
 
 [node name="CornCrop" type="Node2D"]
+script = ExtResource("1_f68s7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
-texture = SubResource("AtlasTexture_wpgdu")
+texture = ExtResource("1_5fjvb")
+hframes = 6
+vframes = 2
+frame = 1
 
 [node name="WateringParticles" parent="." instance=ExtResource("2_wpgdu")]
+emitting = false
 
 [node name="FloweringParticles" parent="." instance=ExtResource("4_wpgdu")]
+emitting = false
 
 [node name="GrowthCycleComponent" parent="." instance=ExtResource("4_fjx7p")]
 
